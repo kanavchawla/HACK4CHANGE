@@ -20,129 +20,111 @@ const Nav = () => {
   };
 
   return (
-    <nav className="container flex items-center justify-around pt-4 pb-3 sticky top-0 z-50 -mt-8">
-      <div
-        className="cursor-pointer rounded-full transition font-semibold duration-300 bg-gray-200 bg-opacity-60 hover:bg-opacity-80 backdrop-blur text-gray-900"
-        style={{ transform: "none" }}
-      >
-        <a href="/">
-          <img src={image} className="max-w-40 rounded-full "></img>
-        </a>
-      </div>
-      <ul
-        className="hidden items-center gap-1 rounded-full px-4 lg:flex bg-gray-200 bg-opacity-60 hover:bg-opacity-80 backdrop-blur text-gray-900"
-        style={{ transform: "none", transformOrigin: "50% 50% 0px" }}
-      >
-        <a href="/">
-          <li className="cursor-pointer select-none whitespace-nowrap rounded-full p-3 font-semibold transition duration-300 hover:text-blue-400">
-            Home
-          </li>
-        </a>
-        <a href="/lms">
-          <li className="cursor-pointer select-none whitespace-nowrap rounded-full p-3 font-semibold transition duration-300 hover:text-blue-400">
-            Blogs
-          </li>
-        </a>
-        <a href="/risk">
-          <li className="cursor-pointer select-none whitespace-nowrap rounded-full p-3 font-semibold transition duration-300 hover:text-blue-400">
-            Risk & Analysis
-          </li>
-        </a>
-        <a href="/guidex">
-          <li className="cursor-pointer select-none whitespace-nowrap rounded-full p-3 font-semibold transition duration-300 hover:text-blue-400">
-            AI
-          </li>
-        </a>
-        {/* <a href="/compare">
-          <li className="cursor-pointer select-none whitespace-nowrap rounded-full p-3 font-semibold transition duration-300 hover:text-blue-400">
-            Comparison
-          </li>
-        </a> */}
-        {/* <a href="http://127.0.0.1:5501/index.html">
-          <li className="cursor-pointer select-none whitespace-nowrap rounded-full p-3 font-semibold transition duration-300 hover:text-blue-400">
-            Dummy-trading
-          </li>
-        </a> */}
-        <a href="/search">
-          <li className="cursor-pointer select-none whitespace-nowrap rounded-full p-3 font-semibold transition duration-300 hover:text-blue-400">
-            Resource finder
-          </li>
-        </a>
-        {/* <a href="/interestList">
-          <li className="cursor-pointer text-green-500 select-none whitespace-nowrap italic rounded-full p-3 font-semibold transition duration-300 hover:text-blue-400 special-list-item">
-            POI
-          </li>
-        </a> */}
-        {/* <a href="/interestList">
-          <li className="cursor-pointer text-green-500 select-none whitespace-nowrap italic rounded-full p-3 font-semibold transition duration-300 hover:text-blue-400 special-list-item">
-            POI
-          </li>
-        </a> */}
-
-        {/* Community Dropdown */}
-        <div className="relative">
-          <button
-            onClick={toggleDropdown}
-            className="cursor-pointer select-none whitespace-nowrap rounded-full p-3 font-semibold transition duration-300 hover:text-blue-400"
-          >
-            Community
-          </button>
-          {isDropdownOpen && (
-            <div className="absolute left-0 mt-2 bg-white border border-gray-200 rounded-md shadow-lg">
-              <Link
-                to="/AskQuestion"
-                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-              >
-                Ask a Question
-              </Link>
-              <Link
-                to="/ViewQuestion"
-                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-              >
-                View Questions
-              </Link>
-            </div>
-          )}
+    <nav className="navbar bg-base-100 shadow-lg sticky top-0 z-50">
+      <div className="container mx-auto flex justify-between items-center py-4">
+        <div className="flex items-center">
+          <Link to="/" className="btn btn-ghost normal-case text-xl">
+            <img src={image} className="w-10 h-10 rounded-full" alt="Logo" />
+          </Link>
         </div>
-      </ul>
-      <div className="flex items-center gap-4 mr-14">
-        <div style={{ transform: "none", transformOrigin: "100% 50% 0px" }}>
-          <div className="flex gap-3">
-            {!token && (
-              <Link
-                to="/login"
-                type="button"
-                className="bg-blue-500 text-white inline-flex items-center whitespace-nowrap select-none justify-center font-medium gap-2 duration-200 ring-offset-background transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none rounded-lg disabled:opacity-50 disabled:grayscale bg-primary text-primary-foreground hover:bg-opacity-60 text-sm md:text-md px-5 md:px-7 py-2 md:py-3 shadow-lg"
-              >
-                Sign In
-              </Link>
+
+        <ul className="menu menu-horizontal px-1 hidden lg:flex">
+          <li>
+            <Link to="/" className="btn btn-ghost rounded-btn">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/lms" className="btn btn-ghost rounded-btn">
+              Blogs
+            </Link>
+          </li>
+          <li>
+            <Link to="/risk" className="btn btn-ghost rounded-btn">
+              Risk & Analysis
+            </Link>
+          </li>
+          <li>
+            <Link to="/guidex" className="btn btn-ghost rounded-btn">
+              AI
+            </Link>
+          </li>
+          <li>
+            <Link to="/search" className="btn btn-ghost rounded-btn">
+              Resource Finder
+            </Link>
+          </li>
+          <li tabIndex={0}>
+            <a className="btn btn-ghost rounded-btn" onClick={toggleDropdown}>
+              Community
+            </a>
+            {isDropdownOpen && (
+              <ul className="p-2 bg-base-100 shadow-lg rounded-box w-52 absolute">
+                <li>
+                  <Link to="/AskQuestion">Ask a Question</Link>
+                </li>
+                <li>
+                  <Link to="/ViewQuestion">View Questions</Link>
+                </li>
+              </ul>
             )}
-            {token && (
-              <button
-                type="button"
-                onClick={handleLogout}
-                className="bg-blue-500 text-white inline-flex items-center whitespace-nowrap select-none justify-center font-medium gap-2 duration-200 ring-offset-background transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none rounded-lg disabled:opacity-50 disabled:grayscale bg-primary text-primary-foreground hover:bg-opacity-60 text-sm md:text-md px-5 md:px-7 py-2 md:py-3 shadow-lg"
-              >
-                Sign Out
-              </button>
-            )}
-            <button className="relative h-12 w-12 shrink-0 cursor-pointer select-none rounded-full p-2 transition-all duration-300 focus:outline-none lg:hidden bg-gray-50 bg-opacity-60 hover:bg-opacity-80 backdrop-blur text-gray-900">
-              <span className="sr-only">open menu</span>
-              <div className="absolute left-1/2 top-1/2 block w-5 -translate-x-1/2 -translate-y-1/3 transform">
-                <span
-                  aria-hidden="true"
-                  className="absolute block h-0.5 w-5 transform bg-current transition duration-300 rounded-full ease-in-out -translate-y-[7px]"
-                ></span>
-                <span
-                  aria-hidden="true"
-                  className="absolute block h-0.5 w-5 transform bg-current transition duration-300 rounded-full ease-in-out"
-                ></span>
-                <span
-                  aria-hidden="true"
-                  className="absolute block h-0.5 w-5 transform bg-current transition duration-300 rounded-full ease-in-out translate-y-[7px]"
-                ></span>
-              </div>
+          </li>
+        </ul>
+
+        <div className="flex items-center">
+          {!token ? (
+            <Link to="/login" className="btn btn-primary">
+              Sign In
+            </Link>
+          ) : (
+            <button onClick={handleLogout} className="btn btn-primary">
+              Sign Out
             </button>
+          )}
+          <div className="dropdown dropdown-end lg:hidden">
+            <button tabIndex={0} className="btn btn-ghost lg:hidden">
+              <span className="sr-only">Open Menu</span>
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
+              </svg>
+            </button>
+            <ul
+              tabIndex={0}
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/lms">Blogs</Link>
+              </li>
+              <li>
+                <Link to="/risk">Risk & Analysis</Link>
+              </li>
+              <li>
+                <Link to="/guidex">AI</Link>
+              </li>
+              <li>
+                <Link to="/search">Resource Finder</Link>
+              </li>
+              <li>
+                <Link to="/AskQuestion">Ask a Question</Link>
+              </li>
+              <li>
+                <Link to="/ViewQuestion">View Questions</Link>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
