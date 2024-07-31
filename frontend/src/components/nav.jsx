@@ -50,7 +50,7 @@ const Nav = () => {
         </a>
         <a href="/guidex">
           <li className="cursor-pointer select-none whitespace-nowrap rounded-full p-3 font-semibold transition duration-300 hover:text-blue-400">
-            GuideX
+            AI
           </li>
         </a>
         {/* <a href="/compare">
