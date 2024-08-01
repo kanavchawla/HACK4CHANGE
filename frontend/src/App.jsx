@@ -28,7 +28,6 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <LanguageSwitcher />
         <Nav />
 
         <Chatbot />
@@ -85,6 +84,7 @@ function App() {
           />
         </Routes>
         {/* <Footer></Footer> */}
+        <LanguageSwitcher />
       </BrowserRouter>
     </>
   );
