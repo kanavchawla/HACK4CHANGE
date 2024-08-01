@@ -140,6 +140,8 @@ app.put("/questions/:id", async (req, res) => {
   }
 });
 /////////////////////////////////////////////
+app.use("/", require("./routes/fundingRoutes.js"));
+/////////////////////////////////////////////
 app.listen(5000, async () => {
   console.log("connected to port : " + 5000);
   try {
