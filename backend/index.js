@@ -23,43 +23,6 @@ app.use(express.json());
 app.use("/api", require("./routes/lmsRoutes.js"));
 app.use("/api", require("./routes/Auth.js"));
 app.use("/api", require("./routes/detect.js"));
-app.post("/generate-poster", (req, res) => {
-  const { companyName, postDescription } = req.body;
-
-  const prompt = `Generate a poster for ${companyName} in english. The poster should attract people by highlighting: ${postDescription}. Create a simple poster.`;
-
-  const options = {
-    method: "POST",
-    hostname: "open-ai21.p.rapidapi.com",
-    port: null,
-    path: "/texttoimage2",
-    headers: {
-      "x-rapidapi-key": "e9b0c87e6amsh6a6a105e6646513p139ac4jsn2172b23e94ea",
-      "x-rapidapi-host": "open-ai21.p.rapidapi.com",
-      "Content-Type": "application/json",
-    },
-  };
-
-  const request = https.request(options, (response) => {
-    const chunks = [];
-
-    response.on("data", (chunk) => {
-      chunks.push(chunk);
-    });
-
-    response.on("end", () => {
-      const body = Buffer.concat(chunks).toString();
-      res.json(JSON.parse(body));
-    });
-  });
-
-  request.write(
-    JSON.stringify({
-      text: prompt,
-    })
-  );
-  request.end();
-});
 
 app.post("/predict", (req, res) => {
   const { company, amount, time } = req.body;
