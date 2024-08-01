@@ -11,11 +11,14 @@ const AskForFundsPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/funding", {
-        title,
-        amount,
-        description,
-      });
+      const response = await axios.post(
+        "https://hack4change-zw20.onrender.com//funding",
+        {
+          title,
+          amount,
+          description,
+        }
+      );
       console.log("Funding request saved:", response.data); // Log response to ensure correct storage
       setTitle("");
       setAmount("");
