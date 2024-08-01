@@ -1,10 +1,10 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {  ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import "./ReactToastify.css";
 import { useDispatch } from "react-redux";
-import { login } from "../services/operations/auth"
+import { login } from "../services/operations/auth";
 
 const PasswordInput = ({
   label,
@@ -47,7 +47,6 @@ const PasswordInput = ({
   );
 };
 const LoginForm = () => {
-
   const dispatch = useDispatch();
 
   const [username, setUsername] = useState("");
@@ -57,18 +56,17 @@ const LoginForm = () => {
 
   const [isChecked, setIsChecked] = useState(false);
   let rememberMe = isChecked;
-  
+
   const handleRememberMe = () => {
     setIsChecked(!isChecked);
     console.log(!isChecked);
     rememberMe = !isChecked;
   };
 
-
   const handleSignIn = (e) => {
-    e.preventDefault()
-    console.log(rememberMe)
-    dispatch(login(username, password, rememberMe, navigate))
+    e.preventDefault();
+    console.log(rememberMe);
+    dispatch(login(username, password, rememberMe, navigate));
   };
 
   const togglePasswordVisibility = (e) => {
@@ -77,18 +75,12 @@ const LoginForm = () => {
   };
 
   return (
-    // <div>      
+    // <div>
     //   <Header/>
-    
-    <section
-      className=" rounded-sm smooth-transition bg-gradient-to-t from-[#f8f3ec] to-[#e0c8ac] min-h-screen flex items-center justify-center"
-    >
-      <div
-        className=" rounded-sm smooth-transition w-full items-center justify-center max-w-md p-6 bg-accent shadow-lg }"
-      >
-        <h1
-          className=" smooth-transition text-xl font-bold text-center select-none text-gray-900 mb-10"
-        >
+
+    <section className=" rounded-sm smooth-transition bg-gradient-to-t from-[#f8f3ec] to-[#e0c8ac] min-h-screen flex items-center justify-center">
+      <div className=" rounded-sm smooth-transition w-full items-center justify-center max-w-md p-6 bg-accent shadow-lg }">
+        <h1 className=" smooth-transition text-xl font-bold text-center select-none text-gray-900 mb-10">
           Log In to Your Account
         </h1>
         {/* <form className="space-y-4" onSubmit={handleSignIn}> */}
@@ -98,7 +90,7 @@ const LoginForm = () => {
               htmlFor="username"
               className=" smooth-transition text-gray-900 block mb-2 text-sm font-medium select-none"
             >
-              username
+              use username as "user3"
             </label>
             <input
               type="username"
@@ -112,7 +104,7 @@ const LoginForm = () => {
             />
           </div>
           <PasswordInput
-            label="Password"
+            label="use password as password3"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             showPassword={showPassword}
@@ -144,9 +136,7 @@ const LoginForm = () => {
               <Link
                 to="/forgetpassword"
                 className=" smooth-transition font-medium text-indigo-800 hover:underline select-none"
-              >
-                Forgot Password
-              </Link>
+              ></Link>
             </a>
           </div>
           <button
@@ -157,7 +147,6 @@ const LoginForm = () => {
             Sign in
           </button>
           <ToastContainer limit={2} />
-
         </form>
       </div>
     </section>
