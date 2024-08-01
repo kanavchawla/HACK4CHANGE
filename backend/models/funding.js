@@ -1,6 +1,25 @@
 const mongoose = require("mongoose");
 
-const fundingSchema = new mongoose.Schema({
+const ContributionSchema = new mongoose.Schema({
+  amount: {
+    type: Number,
+    required: true,
+  },
+  contributor: {
+    type: String,
+    default: "Anonymous",
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+  contactNumber: {
+    type: String,
+    required: true,
+  },
+});
+
+const FundingRequestSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -13,12 +32,7 @@ const fundingSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
+  contributions: [ContributionSchema],
 });
 
-const Funding = mongoose.model("Funding", fundingSchema);
-
-module.exports = Funding;
+module.exports = mongoose.model("FundingRequest", FundingRequestSchema);

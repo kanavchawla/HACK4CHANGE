@@ -9,14 +9,19 @@ const Nav = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isCommunityDropdownOpen, setIsCommunityDropdownOpen] = useState(false);
+  const [isFundingDropdownOpen, setIsFundingDropdownOpen] = useState(false);
 
   const handleLogout = () => {
     dispatch(logout(navigate));
   };
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+  const toggleCommunityDropdown = () => {
+    setIsCommunityDropdownOpen(!isCommunityDropdownOpen);
+  };
+
+  const toggleFundingDropdown = () => {
+    setIsFundingDropdownOpen(!isFundingDropdownOpen);
   };
 
   return (
@@ -57,18 +62,36 @@ const Nav = () => {
             </li>
             <li tabIndex={0} className="relative">
               <button
-                onClick={toggleDropdown}
+                onClick={toggleCommunityDropdown}
                 className="btn btn-ghost rounded-btn"
               >
                 Community
               </button>
-              {isDropdownOpen && (
+              {isCommunityDropdownOpen && (
                 <ul className="p-2 bg-base-100 shadow-lg rounded-box absolute top-full mt-2 w-52">
                   <li>
                     <Link to="/AskQuestion">Ask a Question</Link>
                   </li>
                   <li>
                     <Link to="/ViewQuestion">View Questions</Link>
+                  </li>
+                </ul>
+              )}
+            </li>
+            <li tabIndex={0} className="relative">
+              <button
+                onClick={toggleFundingDropdown}
+                className="btn btn-ghost rounded-btn"
+              >
+                Peer to Peer Funding
+              </button>
+              {isFundingDropdownOpen && (
+                <ul className="p-2 bg-base-100 shadow-lg rounded-box absolute top-full mt-2 w-52">
+                  <li>
+                    <Link to="/ViewFunding">View Funding Requests</Link>
+                  </li>
+                  <li>
+                    <Link to="/AskFunding">Create Funding Request</Link>
                   </li>
                 </ul>
               )}
@@ -128,6 +151,12 @@ const Nav = () => {
               </li>
               <li>
                 <Link to="/ViewQuestion">View Questions</Link>
+              </li>
+              <li>
+                <Link to="/ViewFunding">View Funding Requests</Link>
+              </li>
+              <li>
+                <Link to="/AskFunding">Create Funding Request</Link>
               </li>
             </ul>
           </div>

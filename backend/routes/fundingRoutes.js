@@ -1,8 +1,7 @@
 const express = require("express");
-const Funding = require("../models/funding"); // Adjust the path as necessary
+const Funding = require("../models/funding");
 const router = express.Router();
 
-// POST: Create a new funding request
 router.post("/funding", async (req, res) => {
   const { title, amount, description } = req.body;
 
@@ -21,7 +20,6 @@ router.post("/funding", async (req, res) => {
   }
 });
 
-// GET: Retrieve all funding requests
 router.get("/funding", async (req, res) => {
   try {
     const fundingRequests = await Funding.find();
@@ -29,6 +27,40 @@ router.get("/funding", async (req, res) => {
   } catch (error) {
     console.error("Error retrieving funding requests:", error);
     res.status(500).json({ message: "Error retrieving funding requests" });
+  }
+});
+
+router.get("/funding/:id", async (req, res) => {
+  try {
+    const request = await Funding.findById(req.params.id);
+    if (!request)
+      return res.status(404).json({ error: "Funding request not found" });
+    res.status(200).json(request);
+  } catch (error) {
+    res.status(500).json({ error: "Error fetching funding request" });
+  }
+});
+
+router.put("/funding/:id", async (req, res) => {
+  try {
+    const { amount, email, contactNumber } = req.body;
+    const request = await Funding.findById(req.params.id);
+    if (!request)
+      return res.status(404).json({ error: "Funding request not found" });
+
+    request.contributions.push({
+      amount,
+      email,
+      contactNumber,
+      contributor: "Anonymous",
+    });
+    await request.save();
+
+    res.status(200).json(request);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "Error contributing to the funding request" });
   }
 });
 

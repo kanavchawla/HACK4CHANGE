@@ -21,6 +21,8 @@ import Risk from "./components/risk";
 import LanguageSwitcher from "./components/LanguageSwitcher";
 import CustomerList from "./components/InterestList.jsx";
 import AskForFundsPage from "./components/AskFunding.jsx";
+import ViewFundingRequestsPage from "./components/ViewFundingRequestsPage.jsx";
+import AnswerFundingRequestPage from "./components/answerFunding.jsx";
 function App() {
   return (
     <>
@@ -71,11 +73,14 @@ function App() {
           />
           <Route path="/ViewQuestion" element={<ViewQuestionsPage />} />
           <Route path="/answerquestion/:id" element={<AnswerQuestionPage />} />
-          <Route path="/CaseStudies" element={<CaseStudies />} />
           <Route path="/compare" element={<Compare />} />
-          <Route path="/interestList" element={<CustomerList />} />
           <Route path="/risk" element={<Risk />} />
           <Route path="/AskFunding" element={<AskForFundsPage />} />
+          <Route path="/ViewFunding" element={<ViewFundingRequestsPage />} />
+          <Route
+            path="/AnswerFunding/:id"
+            element={<AnswerFundingRequestPage />}
+          />
         </Routes>
         {/* <Footer></Footer> */}
       </BrowserRouter>
