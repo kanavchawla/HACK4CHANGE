@@ -92,7 +92,7 @@ const Nav = () => {
             </li>
             <li>
               <Link
-                to="http://127.0.0.1:5500/"
+                to="https://inclusiotechpapertrading.netlify.app/"
                 className="btn btn-ghost rounded-btn"
               >
                 Paper Trading
