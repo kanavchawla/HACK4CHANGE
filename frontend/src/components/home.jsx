@@ -28,11 +28,11 @@ export default function Home() {
             <div className="items-center flex flex-wrap">
               <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
                 <div className="pr-12">
-                  <h1 className="text-white font-semibold text-5xl">
+                  <h1 className="text-white font-semibold text-4xl md:text-5xl lg:text-6xl">
                     Empowering Access,
                     <br /> For All{" "}
                     <b className="text-yellow-500">
-                      with Multilingual, Inclusive, and Accessible Solutions
+                      with Multilingual, Inclusive, and Accessible Solutions
                     </b>
                   </h1>
 
