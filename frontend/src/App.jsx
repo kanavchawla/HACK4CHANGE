@@ -23,6 +23,7 @@ import CustomerList from "./components/InterestList.jsx";
 import AskForFundsPage from "./components/AskFunding.jsx";
 import ViewFundingRequestsPage from "./components/ViewFundingRequestsPage.jsx";
 import AnswerFundingRequestPage from "./components/answerFunding.jsx";
+import PodcastEpisodes from "./components/podcast.jsx";
 function App() {
   return (
     <>
@@ -77,6 +78,7 @@ function App() {
           <Route path="/risk" element={<Risk />} />
           <Route path="/AskFunding" element={<AskForFundsPage />} />
           <Route path="/ViewFunding" element={<ViewFundingRequestsPage />} />
+          <Route path="/podcast" element={<PodcastEpisodes />} />
           <Route
             path="/AnswerFunding/:id"
             element={<AnswerFundingRequestPage />}
