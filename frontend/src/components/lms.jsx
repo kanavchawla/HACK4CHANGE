@@ -8,7 +8,7 @@ const HackerNewsSearch = () => {
     const fetchHits = async () => {
       try {
         const response = await fetch(
-          `http://hn.algolia.com/api/v1/search?query=${query}&tags=story&hitsPerPage=10`
+          `https://hn.algolia.com/api/v1/search?query=${query}&tags=story&hitsPerPage=10`
         );
         const data = await response.json();
         setHits(data.hits);
