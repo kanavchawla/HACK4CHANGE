@@ -41,7 +41,7 @@ const Nav = () => {
 
   return (
     <nav
-      className={`navbar bg-base-100 shadow-lg fixed top-0 w-full z-50 transition-all duration-300 h-0 ${
+      className={`navbar bg-base-100 shadow-lg fixed top-0 w-full z-50  h-0 transition-all duration-300  ${
         isScrolled ? "bg-opacity-100" : "bg-opacity-50 backdrop-blur-md"
       }`}
     >
@@ -84,7 +84,6 @@ const Nav = () => {
                 Compare
               </Link>
             </li>
-            <li></li>
             <li>
               <Link to="/podcast" className="btn btn-ghost rounded-btn">
                 Podcasts
@@ -191,6 +190,20 @@ const Nav = () => {
               </li>
               <li>
                 <Link to="/search">Resource Finder</Link>
+              </li>
+              <li>
+                <Link to="/compare">Compare</Link>
+              </li>
+              <li>
+                <Link to="/podcast">Podcasts</Link>
+              </li>
+              <li>
+                <Link to="https://inclusiotechpapertrading.netlify.app/">
+                  Paper Trading
+                </Link>
+              </li>
+              <li>
+                <Link to="http://localhost:3000/">Specially-Abled People</Link>
               </li>
               <li>
                 <Link to="/AskQuestion">Ask a Question</Link>
