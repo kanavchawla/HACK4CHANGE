@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../services/operations/auth";
-import image from "../assets/image.png";
 
 const Nav = () => {
   const { token } = useSelector((state) => state.auth);
@@ -11,6 +10,7 @@ const Nav = () => {
 
   const [isCommunityDropdownOpen, setIsCommunityDropdownOpen] = useState(false);
   const [isFundingDropdownOpen, setIsFundingDropdownOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const handleLogout = () => {
     dispatch(logout(navigate));
@@ -24,12 +24,31 @@ const Nav = () => {
     setIsFundingDropdownOpen(!isFundingDropdownOpen);
   };
 
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="navbar bg-base-100 shadow-lg sticky top-0 z-50 h-5">
+    <nav
+      className={`navbar bg-base-100 shadow-lg fixed top-0 w-full z-50 transition-all duration-300 h-0 ${
+        isScrolled ? "bg-opacity-100" : "bg-opacity-50 backdrop-blur-md"
+      }`}
+    >
       <div className="container mx-auto flex justify-between items-center py-4">
         <div className="flex items-center">
           <Link to="/" className="btn btn-ghost normal-case text-xl">
-            <img src={image} className="w-10 h-10 rounded-full" alt="Logo" />
+            InclusioTech
           </Link>
         </div>
 
@@ -58,6 +77,25 @@ const Nav = () => {
             <li>
               <Link to="/search" className="btn btn-ghost rounded-btn">
                 Resource Finder
+              </Link>
+            </li>
+            <li>
+              <Link to="/compare" className="btn btn-ghost rounded-btn">
+                Compare
+              </Link>
+            </li>
+            <li></li>
+            <li>
+              <Link to="/podcast" className="btn btn-ghost rounded-btn">
+                Podcasts
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="http://localhost:3000/"
+                className="btn btn-ghost rounded-btn"
+              >
+                Specially-Abled People
               </Link>
             </li>
             <li tabIndex={0} className="relative">
