@@ -19,7 +19,8 @@ import PersonalLearningPath from "./components/PersonalLearningPath.js";
 import CaseStudies from "./components/CaseStudies.jsx";
 import Risk from "./components/risk";
 import LanguageSwitcher from "./components/LanguageSwitcher";
-import CustomerList from "./components/InterestList.jsx"
+import CustomerList from "./components/InterestList.jsx";
+import AskForFundsPage from "./components/AskFunding.jsx";
 function App() {
   return (
     <>
@@ -72,7 +73,9 @@ function App() {
           <Route path="/answerquestion/:id" element={<AnswerQuestionPage />} />
           <Route path="/CaseStudies" element={<CaseStudies />} />
           <Route path="/compare" element={<Compare />} />
-          <Route path="/interestList" element={<CustomerList />} /><Route path="/risk" element={<Risk />} />
+          <Route path="/interestList" element={<CustomerList />} />
+          <Route path="/risk" element={<Risk />} />
+          <Route path="/AskFunding" element={<AskForFundsPage />} />
         </Routes>
         {/* <Footer></Footer> */}
       </BrowserRouter>
