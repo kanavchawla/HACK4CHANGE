@@ -14,7 +14,7 @@ const AnswerQuestionPage = () => {
   const fetchQuestion = async () => {
     try {
       const response = await axios.get(
-        `https://hack4change-zw20.onrender.com//questions/${id}`
+        `https://hack4change-zw20.onrender.com/questions/${id}`
       );
       setQuestion(response.data);
       setLoading(false);
@@ -33,7 +33,7 @@ const AnswerQuestionPage = () => {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `https://hack4change-zw20.onrender.com//questions/${id}`,
+        `https://hack4change-zw20.onrender.com/questions/${id}`,
         { answer }
       );
       setQuestion(response.data);

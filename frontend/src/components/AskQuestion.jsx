@@ -10,7 +10,7 @@ const AskQuestionPage = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://hack4change-zw20.onrender.com//questions",
+        "https://hack4change-zw20.onrender.com/questions",
         { question, answers: [] }
       );
       console.log("Question saved:", response.data); // Log response to ensure correct storage

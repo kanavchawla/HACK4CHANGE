@@ -12,7 +12,7 @@ const ViewFundingRequestsPage = () => {
     const fetchFundingRequests = async () => {
       try {
         const response = await axios.get(
-          "https://hack4change-zw20.onrender.com//funding"
+          "https://hack4change-zw20.onrender.com/funding"
         );
         setFundingRequests(response.data);
         setLoading(false);

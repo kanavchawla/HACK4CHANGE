@@ -12,7 +12,7 @@ export function login(username, password, rememberMe, navigate) {
     try {
       const response = await apiConnector(
         "POST",
-        "https://hack4change-zw20.onrender.com//api/login",
+        "https://hack4change-zw20.onrender.com/api/login",
         {
           username,
           password,

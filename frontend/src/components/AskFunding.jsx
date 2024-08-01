@@ -12,7 +12,7 @@ const AskForFundsPage = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://hack4change-zw20.onrender.com//funding",
+        "https://hack4change-zw20.onrender.com/funding",
         {
           title,
           amount,
