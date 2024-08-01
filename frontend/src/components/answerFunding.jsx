@@ -16,7 +16,7 @@ const AnswerFundingRequestPage = () => {
   const fetchRequest = async () => {
     try {
       const response = await axios.get(
-        `https://hack4change-zw20.onrender.com//funding/${id}`
+        `https://hack4change-zw20.onrender.com/funding/${id}`
       );
       setRequest(response.data);
       setLoading(false);
@@ -35,7 +35,7 @@ const AnswerFundingRequestPage = () => {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `https://hack4change-zw20.onrender.com//funding/${id}`,
+        `https://hack4change-zw20.onrender.com/funding/${id}`,
         {
           amount,
           email,

@@ -47,7 +47,7 @@ const Nav = () => {
     >
       <div className="container mx-auto flex justify-between items-center py-4">
         <div className="flex items-center">
-          <Link to="/" className="btn btn-ghost normal-case text-xl">
+          <Link to="/" className="btn btn-ghost normal-case text-l">
             InclusioTech
           </Link>
         </div>
@@ -88,6 +88,14 @@ const Nav = () => {
             <li>
               <Link to="/podcast" className="btn btn-ghost rounded-btn">
                 Podcasts
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="http://127.0.0.1:5500/"
+                className="btn btn-ghost rounded-btn"
+              >
+                Paper Trading
               </Link>
             </li>
             <li>

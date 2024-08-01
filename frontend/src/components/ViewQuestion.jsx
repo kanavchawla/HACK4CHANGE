@@ -11,7 +11,7 @@ const ViewQuestionsPage = () => {
     const fetchQuestions = async () => {
       try {
         const response = await axios.get(
-          "https://hack4change-zw20.onrender.com//questions"
+          "https://hack4change-zw20.onrender.com/questions"
         );
         setQuestions(response.data);
         setLoading(false);

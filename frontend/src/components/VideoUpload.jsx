@@ -63,7 +63,7 @@ function VideoUpload() {
 
     try {
       const response = await axios.post(
-        "https://hack4change-zw20.onrender.com//api/mediaUpload",
+        "https://hack4change-zw20.onrender.com/api/mediaUpload",
         formData,
         {
           headers: {
