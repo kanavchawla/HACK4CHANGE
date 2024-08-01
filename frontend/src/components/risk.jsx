@@ -26,11 +26,14 @@ const App = () => {
   const sendData = async () => {
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:5000/predict", {
-        company,
-        amount: parseFloat(amount),
-        time: parseInt(time, 10),
-      });
+      const response = await axios.post(
+        "https://hack4change-zw20.onrender.com//predict",
+        {
+          company,
+          amount: parseFloat(amount),
+          time: parseInt(time, 10),
+        }
+      );
       setData(response.data);
     } catch (error) {
       setError(error);

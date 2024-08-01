@@ -11,7 +11,9 @@ const ViewFundingRequestsPage = () => {
   useEffect(() => {
     const fetchFundingRequests = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/funding");
+        const response = await axios.get(
+          "https://hack4change-zw20.onrender.com//funding"
+        );
         setFundingRequests(response.data);
         setLoading(false);
       } catch (err) {

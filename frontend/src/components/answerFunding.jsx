@@ -15,7 +15,9 @@ const AnswerFundingRequestPage = () => {
 
   const fetchRequest = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/funding/${id}`);
+      const response = await axios.get(
+        `https://hack4change-zw20.onrender.com//funding/${id}`
+      );
       setRequest(response.data);
       setLoading(false);
     } catch (err) {
@@ -32,11 +34,14 @@ const AnswerFundingRequestPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put(`http://localhost:5000/funding/${id}`, {
-        amount,
-        email,
-        contactNumber,
-      });
+      const response = await axios.put(
+        `https://hack4change-zw20.onrender.com//funding/${id}`,
+        {
+          amount,
+          email,
+          contactNumber,
+        }
+      );
       setRequest(response.data);
       setAmount("");
       setEmail("");
